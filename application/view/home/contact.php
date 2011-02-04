@@ -4,11 +4,11 @@
 	<div class="contentContainer">
 		<div class="fieldHolder">
 			<div class="labelItem">Name:</div>
-			<div class="inputField"><input type="text" name="fullName" class="text" value=""></div>
+			<div class="inputField"><input type="text" name="fullName" class="text" value="<?=set_value('fullName')?>"></div>
 		</div>
 		<div class="fieldHolder">
 			<div class="labelItem">Email Address:</div>
-			<div class="inputField"><input type="text" name="emailAddress" class="text" value=""></div>
+			<div class="inputField"><input type="text" name="emailAddress" class="text" value="<?=set_value('emailAddress')?>"></div>
 		</div>
 		<div class="fieldHolder">
 			<div class="labelItem">Subject:</div>
@@ -25,7 +25,7 @@
 		</div>
 		<div class="fieldHolder">
 			<div class="labelItem">Message:</div>
-			<div class="inputField"><textarea name="messageBox" class="textArea"></textarea></div>
+			<div class="inputField"><textarea name="messageBox" class="textArea"><?=set_value('messageBox')?></textarea></div>
 		</div>
 		<div class="fieldHolder">
 			<div class="labelItem">Anti Script:</div>

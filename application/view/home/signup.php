@@ -1,14 +1,14 @@
 <h1>Im the signup page</h1>
 
-<form method="post" action="/Fury-PHP/home/signup/submit">
+<?=form_open_this("home/signup/submit")?>
 	<div class="contentContainer">
 		<div class="fieldHolder">
 			<div class="labelItem">Email Address:</div>
-			<div class="inputField"><input type="text" name="emailAddress" class="text" value=""></div>
+			<div class="inputField"><input type="text" name="emailAddress" class="text" value="<?=set_value('emailAddress')?>"></div>
 		</div>
 		<div class="fieldHolder">
 			<div class="labelItem">Confirm Email:</div>
-			<div class="inputField"><input type="text" name="confirmEmail" class="text" value=""></div>
+			<div class="inputField"><input type="text" name="confirmEmail" class="text" value="<?=set_value('confirmEmail')?>"></div>
 		</div>
 		<div class="fieldHolder">
 			<div class="labelItem">Gender:</div>
@@ -35,7 +35,7 @@
 		</div>
 		<div class="fieldHolder">
 			<div class="labelItem">Referral Code:</div>
-			<div class="inputField"><input type="text" name="referralCode" class="text" value=""></div>
+			<div class="inputField"><input type="text" name="referralCode" class="text" value="<?=set_value('referralCode')?>"></div>
 		</div>
 		<div class="fieldHolder">
 			<div class="labelItem">Anti Script:</div>

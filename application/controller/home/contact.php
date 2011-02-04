@@ -6,12 +6,12 @@
 			
 			parent::Controller();
 			$this->load->library('validation');
+			$this->load->helper('form');
 		
 		}
 		
 		function index(){
 		
-			$this->load->helper('form');
 			$this->load->view("home/contact");
 					
 		}

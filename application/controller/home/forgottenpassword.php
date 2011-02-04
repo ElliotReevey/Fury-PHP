@@ -5,6 +5,8 @@
 		function __construct(){
 			
 			parent::Controller();
+			$this->load->library('validation');
+			$this->load->helper('form');
 		
 		}
 		

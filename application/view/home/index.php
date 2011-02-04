@@ -2,7 +2,7 @@
 
 Links: <a href="/Fury-PHP/home/signup">Signup</a> | <a href="/Fury-PHP/home/contact">Contact</a> | <a href="/Fury-PHP/home/forgottenpassword">Forgotten Password</a>
 
-<form method="post" action="/Fury-PHP/home/index/submit">
+<?=form_open_this("home/index/submit")?>
 	<div class="contentContainer">
 		<div class="fieldHolder">
 			<div class="labelItem">Email Address:</div>
