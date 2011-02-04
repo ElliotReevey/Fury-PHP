@@ -30,13 +30,19 @@
 						if($this->validation->checkdata($subject,4)){
 							if($message) {
 								if($this->validation->is_numeric($antiscript)) {
-									
-									//Send the email
-									
-									$data['success'] = "Well Done";
-									$this->load->view('home/contact_success',$data);
-									exit();
-																		
+									//if($antiscript == $actualcode) {
+
+										//Send the email
+										
+										$data['success'] = "Well Done";
+										$this->load->view('home/contact_success',$data);
+										exit();
+
+/*
+									} else {
+										$data['fail'] = "You must enter the code correctly.";
+									}
+*/
 								} else {
 									$data['fail'] = "You must copy the code correctly.";
 								}

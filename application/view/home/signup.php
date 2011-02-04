@@ -1,5 +1,5 @@
 <h1>Im the signup page</h1>
-
+<?=$fail?>
 <?=form_open_this("home/signup/submit")?>
 	<div class="contentContainer">
 		<div class="fieldHolder">

@@ -31,12 +31,17 @@
 						if($this->validation->valid_email($confirm)){
 							if($email == $confirm) {
 								if($this->validation->alpha_loose($gender)) {
-									if($this->validation->alpha($age)) {
-										if($this->validation->alpha($antiscript)) {
-											if($antiscript == $actualcode) {
-												if($this->validation->alpha($terms)) {
+									if($this->validation->is_numeric($age)) {
+										if($this->validation->is_numeric($antiscript)) {
+											//if($antiscript == $actualcode) {
+												if($this->validation->is_numeric($terms)) {
 										
 													//Send the email
+													
+													//Insert new row
+													$fields['email']=$email;
+													$fields['password']='crunt0101';
+													$this->db->insert('users',$fields);
 													
 													$data['success'] = "Well Done";
 													$this->load->view('home/signup_success',$data);
@@ -45,9 +50,11 @@
 												} else {
 													$data['fail'] = "You must agree to the terms of service.";
 												}
+/*
 											} else {
 												$data['fail'] = "You must enter the code correctly.";
 											}
+*/
 										} else {
 											$data['fail'] = "You must enter a valid anti script code.";
 										}
