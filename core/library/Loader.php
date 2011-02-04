@@ -226,8 +226,6 @@
 					
 			
 			# Include the path
-			
-						
 			include($_fury_path);
 			
 			if ($_fury_return === TRUE){		

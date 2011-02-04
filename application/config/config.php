@@ -21,7 +21,7 @@
 	// ! Auto load models   
 	// =========== 
 	
-	$config['auto_load_models'] = array("test");
+	$config['auto_load_models'] = array();
 			
 	// =========== 
 	// ! Database Config   
@@ -37,7 +37,7 @@
 		
 		"user" => "root",
 		"password" => "root",
-		"database" => "scshop",
+		"database" => "fury",
 		"host" => "localhost",
 		"char_set" => "utf8",
 		"dbcollat" => "utf8_general_ci"
@@ -107,7 +107,7 @@
 	// ! Default Controller   
 	// =========== 
 	
-	$config['routes']['default_controller'] = "home/login";
+	$config['routes']['default_controller'] = "home/index";
 	
 	// =========== 
 	// ! Turn on and off Templating   
