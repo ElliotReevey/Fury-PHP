@@ -11,9 +11,9 @@
 									
 		}
 		
-		function index(){
+		function index($email,$code){
 			
-			echo $email;
+			print_r(func_get_args());
 			
 			$this->load->helper('form');
 			
@@ -31,7 +31,11 @@
 		
 		function submit($string=false){
 		
-		echo $string;
+		
+/*
+		$this->load->library('Utilities');
+		echo $this->utilities->generateToken(40);
+*/
 			
 /*
 			$this->load->library('Mail');
