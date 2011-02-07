@@ -39,7 +39,8 @@
 												if(!$check) {
 												
 													//Password
-													$password = "crunt0101";
+													$this->load->library('utilities');
+													$password = $this->utilities->generateToken(10);
 													$md5password = md5($password);
 													
 													//Send the email

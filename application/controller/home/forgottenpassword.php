@@ -13,7 +13,6 @@
 		function index(){
 						
 			$this->load->view("home/forgottenpassword");
-			echo strlen('3NUYjzT034OkTNTkI2Q1Ix0yTTyNk0YTWTNTjjANR3OA20MLzExgNMQj3MNjDcTWTzTMwUTMYNR');
 		
 		}
 
@@ -29,8 +28,8 @@
 							if(!$lastreset) {
 							
 								//Generate reset code
-								$this->load->library('Utilities');
-								$code = $this->utilities->generateToken(40);
+								$this->load->library('utilities');
+								$code = $this->utilities->generateToken(75);
 								
 								//Insert into database
 								$fields['email']=$email;
@@ -50,9 +49,7 @@ We have recently received a request to reset the password for your Street Crime 
 If this request was made by you please follow the instructions below to reset your street crime password. If not please simply ignore or delete this email.
 	
 Click the link below or copy it into your web browser:
-	".$this->core->get_config_item('base_url')."home/resetpassword/auth/".$code."/
-	
-Your activation code: ".$code."
+".$this->core->get_config_item('base_url')."home/resetpassword/auth/".$code."/
 	
 These links will be valid for 1 day only, after that you will have to make a new request.
 	
@@ -63,7 +60,6 @@ These links will be valid for 1 day only, after that you will have to make a new
 	If this request was made by you please follow the instructions below to reset your street crime password. If not please simply ignore or delete this email.<br><br>
 	Click the link below or copy it into your web browser:<br>
 	".$this->core->get_config_item('base_url')."home/resetpassword/auth/".$code."/<br><br>
-	Your activation code: <b>".$code."</b><br><br>
 	These links will be valid for 1 day only, after that you will have to make a new request.<br><br>
 	".$this->core->get_config_item('name','application')." Staff<br>
 	".$this->core->get_config_item('base_url'))
