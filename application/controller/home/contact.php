@@ -33,11 +33,17 @@
 									//if($antiscript == $actualcode) {
 
 										//Send the email
-										
+										$this->load->library('Mail');
+							            $this->mail
+							                ->setTo("dave@bytewire.co.uk","David Heward")
+							                ->setSubject("Some subject")
+							                ->setPlain("This is some plain text")
+							                ->setHtml("<b>Goody string</b> i cant be bothered to watch lol.")
+							                ->send();
+							                									
 										$data['success'] = "Well Done";
-										$this->load->view('home/contact_success',$data);
-										exit();
-
+										header("Location: ".$this->core->get_config_item('base_url')."home/contact/success/");
+										
 /*
 									} else {
 										$data['fail'] = "You must enter the code correctly.";
@@ -59,11 +65,18 @@
 					$data['fail'] = "You must enter a valid name.";
 				}
 				
-				$this->load->view('home/contact',$data);
-								
+				if(isset($data['fail'])) {
+					$this->load->view('home/contact',$data);
+				}
 			} else {
 				$this->load->view("home/contact");
 			}	
-		}	
+		}
 		
+		function success(){
+		
+			$this->load->view("home/contact_success");
+		
+		}
+				
 	}

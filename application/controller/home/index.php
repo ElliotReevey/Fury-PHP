@@ -7,13 +7,15 @@
 			parent::Controller();
 			$this->load->library('validation');
 			$this->load->helper('form');
-		
+			$this->load->model('gamecore');
+			$this->gamecore->loginchecker();
+
 		}
 		
 		function index(){
-						
+				
 			$this->load->view("home/index");
-			
+		 
 		}
 	
 		function submit(){
@@ -27,13 +29,16 @@
 					if($password) {
 						
 						//Check the email address and password match
-						$check = $this->db->query("SELECT email, password FROM users WHERE email = '$email'")->row();
+						$check = $this->db->query("SELECT id, email, password, username FROM users WHERE email = '$email'")->row();
 						if($check) {
-							if($check['password'] == $md5password) {							
-							
-								$this->load->view('home/loginchecker');
-								exit();
-						
+							if($check['password'] == $md5password) {
+								$_SESSION['id']=$check['id'];
+														
+								if($check['username']) {
+									header("Location: ".$this->core->get_config_item('base_url')."home/logincheck");
+								} else {
+									header("Location: ".$this->core->get_config_item('base_url')."home/choosecharacter");
+								}						
 							} else {
 								$data['fail'] = "The password you entered was incorrect.";
 							}
