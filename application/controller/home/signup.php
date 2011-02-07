@@ -39,7 +39,14 @@
 												if(!$check) {
 												
 													//Send the email
-													
+													$this->mail
+										                ->setToName("Contact Form")
+										                ->setSubject("Some subject")
+										                ->setPlain("This is some plain text")
+										                ->setHtml("<b>Goody string</b> i cant be bothered to watch lol.")
+										                ->setSystem()
+										                ->send();
+												
 													//Password
 													$password = md5('crunt0101');
 													
@@ -50,7 +57,6 @@
 													
 													$data['success'] = "Well Done";
 													$this->load->view('home/signup_success',$data);
-													exit();
 												
 												} else {
 													$data['fail'] = "This email address has already been used.";
@@ -82,7 +88,9 @@
 					$data['fail'] = "You must enter a valid email address.";
 				}
 				
-				$this->load->view('home/signup',$data);
+				if(isset($data['fail'])) {
+					$this->load->view('home/signup',$data);
+				}
 								
 			} else {
 				$this->load->view("home/signup");

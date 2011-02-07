@@ -105,7 +105,7 @@
 	// =========== 	
 	
 	$config['webmaster_email'] = 'webmaster@street-crime.com';
-	$config['webmaster_sendfrom'] = 'Street Crime Mmorpg Game';
+	$config['webmaster_sendfrom'] = 'Street Crime MMORPG Game';
 	$config['reply_to_email'] = 'feedback@street-crime.com';
 	$config['reply_to_name'] = 'Street Crime Feedback';
 	

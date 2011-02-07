@@ -33,12 +33,12 @@
 									//if($antiscript == $actualcode) {
 
 										//Send the email
-										$this->load->library('Mail');
-							            $this->mail
-							                ->setTo("elliot@bytewire.co.uk","David Heward")
+										$this->mail
+							                ->setToName("Contact Form")
 							                ->setSubject("Some subject")
 							                ->setPlain("This is some plain text")
 							                ->setHtml("<b>Goody string</b> i cant be bothered to watch lol.")
+							                ->setSystem()
 							                ->send();
 							                									
 										header("Location: ".$this->core->get_config_item('base_url')."home/contact/success/");

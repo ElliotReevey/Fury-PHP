@@ -52,7 +52,9 @@
 					$data['fail'] = "You must enter a valid email address.";
 				}
 				
-				$this->load->view('home/index',$data);
+				if(isset($data['fail'])) {
+					$this->load->view('home/index',$data);
+				}
 								
 			} else {
 				$this->load->view("home/index");
