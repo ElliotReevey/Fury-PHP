@@ -90,7 +90,7 @@
 	// ! If you are using Zend in any part of this application please define your include path   
 	// =========== 
 	
-	$config['zend_local_include'] = "/usr/lib/php/libraries/zend-framework-1.11.2/";
+	$config['zend_local_include'] = "/usr/lib/php/libraries/zend-framework-1.10.8/";
 	$config['remote_include'] = "/";
 	
 	// =========== 
