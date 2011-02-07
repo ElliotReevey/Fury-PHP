@@ -33,11 +33,16 @@
 									//if($antiscript == $actualcode) {
 
 										//Send the email
+										$this->load->library('mail');
 										$this->mail
-							                ->setToName("Contact Form")
-							                ->setSubject("Some subject")
+							                ->setSubject($this->core->get_config_item('name','application')." - Contact Form")
 							                ->setPlain("This is some plain text")
-							                ->setHtml("<b>Goody string</b> i cant be bothered to watch lol.")
+							                ->setHtml("<h2>".$this->core->get_config_item('name','application')." Contact Form</h2><br><br>
+							                The following message has been sent via the contact form on ".$this->core->get_config_item('name','application').".<br><br>
+							                Subject: ".$subject."<br>
+							                Name: ".$name."<br>
+							                Message: ".nl2br($message)."<br><br>
+							                Replies go to: ".$email."")
 							                ->setSystem()
 							                ->send();
 							                									
