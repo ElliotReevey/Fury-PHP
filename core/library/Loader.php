@@ -375,7 +375,7 @@
 						}
 					
 						$is_duplicate = TRUE;
-						log_message('debug', $class." class already loaded. Second attempt ignored.");
+						//log_message('debug', $class." class already loaded. Second attempt ignored.");
 						return;
 					}
 					
@@ -439,9 +439,10 @@
 	
 			// Instantiate the class		
 			$FURY =& get_instance();
+						
 			if ($config !== NULL){
 				$FURY->$classvar = new $name($config);
-			}else{		
+			}else{
 				$FURY->$classvar = new $name;
 			}	
 		} 
