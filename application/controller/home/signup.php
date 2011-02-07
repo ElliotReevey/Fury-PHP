@@ -66,7 +66,6 @@ This password is case-sensitive. After logging in you can easily change your pas
 										                This password is case-sensitive. After logging in you can easily change your password!<br><br>
 										                ".$this->core->get_config_item('name','application')." Staff<br>
 										                ".$this->core->get_config_item('base_url'))
-										                ->setSystem()
 										                ->send();
 												
 													//Insert new row
