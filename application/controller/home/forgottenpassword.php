@@ -13,6 +13,7 @@
 		function index(){
 						
 			$this->load->view("home/forgottenpassword");
+			echo strlen('3NUYjzT034OkTNTkI2Q1Ix0yTTyNk0YTWTNTjjANR3OA20MLzExgNMQj3MNjDcTWTzTMwUTMYNR');
 		
 		}
 
@@ -28,7 +29,8 @@
 							if(!$lastreset) {
 							
 								//Generate reset code
-								$code = "WeOsrwMC9VrSp90D3iYy";
+								$this->load->library('Utilities');
+								$code = $this->utilities->generateToken(40);
 								
 								//Insert into database
 								$fields['email']=$email;
