@@ -62,19 +62,19 @@ Replies go to: ".$email."")
 									}
 */
 								} else {
-									$data['fail'] = errorbox("You must copy the code correctly.");
+									$data['fail'] = "You must copy the code correctly.";
 								}
 							} else {
-								$data['fail'] = errorbox("You must enter a valid message.");
+								$data['fail'] = "You must enter a valid message.";
 							}
 						} else {
-							$data['fail'] = errorbox("You must select a subject.");
+							$data['fail'] = "You must select a subject.";
 						}
 					} else {
-						$data['fail'] = errorbox("You must enter a valid email address.");
+						$data['fail'] = "You must enter a valid email address.";
 					}
 				} else {
-					$data['fail'] = errorbox("You must enter a valid name.");
+					$data['fail'] = "You must enter a valid name.";
 				}
 				
 				if(isset($data['fail'])) {
