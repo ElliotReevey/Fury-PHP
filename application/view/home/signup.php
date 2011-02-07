@@ -1,4 +1,6 @@
-<h1>Im the signup page</h1>
+<p>Register now to start a life of crime, killing, girls and money. Join thousands of others in the biggest and best free online gangster game on the web.</p>
+
+<?php if(isset($fail)) { echo $fail; } ?>
 
 <?=form_open_this("home/signup/submit")?>
 	<div class="contentContainer">

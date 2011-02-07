@@ -1,4 +1,6 @@
-<h1>Im the contact page</h1>
+<p>If you have any queries or questions you would like to ask please use the form below to contact us. We will do our best to reply within 24 hours.</p>
+
+<?php if(isset($fail)) { echo $fail; } ?>
 
 <?=form_open_this("home/contact/submit")?>
 	<div class="contentContainer">

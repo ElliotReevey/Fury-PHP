@@ -36,12 +36,20 @@
 										$this->load->library('mail');
 										$this->mail
 							                ->setSubject($this->core->get_config_item('name','application')." - Contact Form")
-							                ->setPlain("This is some plain text")
-							                ->setHtml("<h2>".$this->core->get_config_item('name','application')." Contact Form</h2><br><br>
+							                ->setPlain($this->core->get_config_item('name','application')." Contact Form
+							                
+The following message has been sent via the contact form on ".$this->core->get_config_item('name','application').".
+							                
+Subject: ".$subject."
+Name: ".$name."
+Message: ".stripslashes($message)."
+							                
+Replies go to: ".$email."")
+							                ->setHtml("<h2>".$this->core->get_config_item('name','application')." Contact Form</h2>
 							                The following message has been sent via the contact form on ".$this->core->get_config_item('name','application').".<br><br>
 							                Subject: ".$subject."<br>
 							                Name: ".$name."<br>
-							                Message: ".nl2br($message)."<br><br>
+							                Message: ".nl2br(stripslashes($message))."<br><br>
 							                Replies go to: ".$email."")
 							                ->setSystem()
 							                ->send();

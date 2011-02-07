@@ -22,20 +22,57 @@
 				$email = $_POST['emailAddress'];
 				
 					if($this->validation->valid_email($email)) {
-						$check = $this->db->query("SELECT email FROM users WHERE email = '$email'")->row();
+						$check = $this->db->query("SELECT username, email FROM users WHERE email = '$email'")->row();
 						if($check) {
-
-							//Send the email
-							$this->mail
-				                ->setToName("Contact Form")
-				                ->setSubject("Some subject")
-				                ->setPlain("This is some plain text")
-				                ->setHtml("<b>Goody string</b> i cant be bothered to watch lol.")
-				                ->setSystem()
-				                ->send();
+							$lastreset = $this->db->query("SELECT * FROM reset_password WHERE email = '$email'")->row();
+							if(!$lastreset) {
 							
-							header("Location: ".$this->core->get_config_item('base_url')."home/forgottenpassword/success/");
+								//Generate reset code
+								$code = "WeOsrwMC9VrSp90D3iYy";
 								
+								//Insert into database
+								$fields['email']=$email;
+								$fields['code']=$code;
+								$fields['time']=time();
+								$this->db->insert('reset_password',$fields);
+	
+								//Send the email
+								$this->load->library('mail');
+								$this->mail
+	            				    ->setTo($check['email'],$check['username'])
+					                ->setSubject($this->core->get_config_item('name','application')." - Forgotten Password")
+					                ->setPlain($this->core->get_config_item('name','application')." Reset Password Request
+					                
+We have recently received a request to reset the password for your Street Crime account attached to this email address.
+	
+If this request was made by you please follow the instructions below to reset your street crime password. If not please simply ignore or delete this email.
+	
+Click the link below or copy it into your web browser:
+	".$this->core->get_config_item('base_url')."resetpassword/".$email."/".$code."/
+	
+Your activation code: ".$code."
+	
+These links will be valid for 1 day only, after that you will have to make a new request.
+	
+".$this->core->get_config_item('name','application')." Staff
+".$this->core->get_config_item('base_url'))
+					                ->setHtml("<h2>".$this->core->get_config_item('name','application')." Reset Password Request</h2>
+					                We have recently received a request to reset the password for your Street Crime account attached to this email address.<br><br>
+	If this request was made by you please follow the instructions below to reset your street crime password. If not please simply ignore or delete this email.<br><br>
+	Click the link below or copy it into your web browser:<br>
+	".$this->core->get_config_item('base_url')."resetpassword/".$email."/".$code."/<br><br>
+	Your activation code: <b>".$code."</b><br><br>
+	These links will be valid for 1 day only, after that you will have to make a new request.<br><br>
+	".$this->core->get_config_item('name','application')." Staff<br>
+	".$this->core->get_config_item('base_url'))
+					                ->setSystem()
+					                ->send();
+								
+								header("Location: ".$this->core->get_config_item('base_url')."home/resetpassword/".$email."/");
+							
+							} else {
+								$data['fail'] = "You have requested a password reset recently, check your email for more information.";
+							}
 						} else {
 							$data['fail'] = "The email address entered was not found in our system.";
 						}										

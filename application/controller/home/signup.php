@@ -38,26 +38,44 @@
 												$check = $this->db->query("SELECT email FROM users WHERE email = '$email'")->row();
 												if(!$check) {
 												
+													//Password
+													$password = "crunt0101";
+													$md5password = md5($password);
+													
 													//Send the email
+													$this->load->library('mail');
 													$this->mail
-										                ->setToName("Contact Form")
-										                ->setSubject("Some subject")
-										                ->setPlain("This is some plain text")
-										                ->setHtml("<b>Goody string</b> i cant be bothered to watch lol.")
+	    					        				    ->setTo($email,"")
+										                ->setSubject("Welcome to ".$this->core->get_config_item('name','application'))
+										                ->setPlain("Welcome to ".$this->core->get_config_item('name','application')."
+										                
+You can now login at ".$this->core->get_config_item('base_url')." using the below password and email address.
+
+Your email: ".$email."
+Your password: ".$password."
+
+This password is case-sensitive. After logging in you can easily change your password!
+
+".$this->core->get_config_item('name','application')." Staff
+".$this->core->get_config_item('base_url'))
+										                ->setHtml("<h2>Welcome to ".$this->core->get_config_item('name','application')."</h2>
+										                You can now login at ".$this->core->get_config_item('base_url')." using the below password and email address.<br><br>
+										                Your email: ".$email."<br>
+										                Your password: ".$password."<br><br>
+										                
+										                This password is case-sensitive. After logging in you can easily change your password!<br><br>
+										                ".$this->core->get_config_item('name','application')." Staff<br>
+										                ".$this->core->get_config_item('base_url'))
 										                ->setSystem()
 										                ->send();
 												
-													//Password
-													$password = md5('crunt0101');
-													
 													//Insert new row
 													$fields['email']=$email;
 													$fields['password']=$password;
 													$this->db->insert('users',$fields);
 													
-													$data['success'] = "Well Done";
-													$this->load->view('home/signup_success',$data);
-												
+													header("Location: ".$this->core->get_config_item('base_url')."home/signup_success/");
+
 												} else {
 													$data['fail'] = "This email address has already been used.";
 												}		
