@@ -32,13 +32,14 @@
 						$check = $this->db->query("SELECT id, email, password, username FROM users WHERE email = '$email'")->row();
 						if($check) {
 							if($check['password'] == $md5password) {
-								$_SESSION['id']=$check['id'];
+								$_SESSION['logincheck']=$check['id'];
 														
 								if($check['username']) {
 									header("Location: ".$this->core->get_config_item('base_url')."home/logincheck");
 								} else {
 									header("Location: ".$this->core->get_config_item('base_url')."home/choosecharacter");
-								}						
+								}
+														
 							} else {
 								$data['fail'] = "The password you entered was incorrect.";
 							}
