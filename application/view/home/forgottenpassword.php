@@ -1,7 +1,7 @@
 <p>Lost your password? Dont worry! Reseting it is very simple.</p>
 <p>Enter the email address which you used to sign up and click the 'Recover' button we will then send further details to your email address about resetting your password.</p>
 
-<?php if(isset($fail)) { echo $fail; } ?>
+<?php if(isset($fail)) { echo errorbox($fail); } ?>
 
 <?=form_open_this("home/forgottenpassword/submit")?>
 	<div class="contentContainer">

@@ -1,6 +1,6 @@
 <h1>Im the index page</h1>
 
-Links: <a href="/Fury-PHP/home/signup">Signup</a> | <a href="/Fury-PHP/home/contact">Contact</a> | <a href="/Fury-PHP/home/forgottenpassword">Forgotten Password</a>
+Links: <a href="/Fury-PHP/home/signup">Signup</a> | <a href="/Fury-PHP/home/contact">Contact</a> | <a href="/Fury-PHP/home/forgottenpassword">Forgotten Password</a> <?php if(isset($_SESSION['id'])) { ?> | <a href="/Fury-PHP/logout">Logout</a> <?php } ?>
 
 <?=form_open_this("home/index/submit")?>
 	<div class="contentContainer">
