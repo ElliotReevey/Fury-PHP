@@ -8,7 +8,7 @@
 			$this->load->library('validation');
 			$this->load->helper('form');
 			$this->load->model('gamecore');
-			$this->gamecore->loginchecker();
+			$this->gamecore->outsidechecker();
 
 		}
 		
