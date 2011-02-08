@@ -31,6 +31,12 @@
 		
 		function submit($string=false){
 		
+		$this->load->library('Profanity');
+		
+		$str = "Cock ass grass wanker fest";
+		
+		echo $this->profanity->strip($str);
+		
 		
 /*
 		$this->load->library('Utilities');
