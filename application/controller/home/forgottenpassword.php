@@ -70,13 +70,13 @@ These links will be valid for 1 day only, after that you will have to make a new
 								header("Location: ".$this->core->get_config_item('base_url')."home/forgottenpassword/success/");
 							
 							} else {
-								$data['fail'] = "You have requested a password reset recently, check your email for more information.";
+								$data['fail'] = gettext("You have requested a password reset recently, check your email for more information.");
 							}
 						} else {
-							$data['fail'] = "The email address entered was not found in our system.";
+							$data['fail'] = gettext("The email address entered was not found in our system.");
 						}										
 					} else {
-						$data['fail'] = "You must enter a valid email address.";
+						$data['fail'] = gettext("You must enter a valid email address.");
 					}
 				
 				if(isset($data['fail'])) {

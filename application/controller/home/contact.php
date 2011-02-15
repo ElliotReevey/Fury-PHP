@@ -64,19 +64,19 @@ Replies go to: ".$email."")
 									}
 */
 								} else {
-									$data['fail'] = "You must copy the code correctly.";
+									$data['fail'] = gettext("You must copy the code correctly.");
 								}
 							} else {
-								$data['fail'] = "You must enter a valid message.";
+								$data['fail'] = gettext("You must enter a valid message.");
 							}
 						} else {
-							$data['fail'] = "You must select a subject.";
+							$data['fail'] = gettext("You must select a subject.");
 						}
 					} else {
-						$data['fail'] = "You must enter a valid email address.";
+						$data['fail'] = gettext("You must enter a valid email address.");
 					}
 				} else {
-					$data['fail'] = "You must enter a valid name.";
+					$data['fail'] = gettext("You must enter a valid name.");
 				}
 				
 				if(isset($data['fail'])) {
